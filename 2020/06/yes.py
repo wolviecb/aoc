@@ -5,7 +5,7 @@ from typing import Callable
 
 INPUT = []
 with open("input.txt") as read_input:
-    INPUT = [ line.splitlines() for line in read_input.read().split("\n\n")]
+    INPUT = [line.splitlines() for line in read_input.read().split("\n\n")]
 
 
 def forms(answers: list, check_type: Callable[[list], int]) -> int:
