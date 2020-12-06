@@ -24,24 +24,26 @@ def validate(data: list) -> int:
             counter += 1
     return counter
 
-def hell_validate(data:list) -> int:
+def hell_validate(data: list) -> int:
     """Validates passport data against the REQUIRED dictionary"""
     counter = 0
     passports = parse(data)
     for passport in passports:
         try:
             if (
-                REQUIRED["byr"]["min"] <= int(passport["byr"]) <= REQUIRED["byr"]["max"] and
-                REQUIRED["iyr"]["min"] <= int(passport["iyr"]) <= REQUIRED["iyr"]["max"] and
-                REQUIRED["eyr"]["min"] <= int(passport["eyr"]) <= REQUIRED["eyr"]["max"] and
-                (
-                    REQUIRED["hgt"][passport["hgt"].rsplit()[0][-2:]]["min"] <=
-                    int(passport["hgt"][:-2]) <=
-                    REQUIRED["hgt"][passport["hgt"].rsplit()[0][-2:]]["max"]
-                ) and
-                passport["hcl"][0] == "#" and int(passport["hcl"][1:7], 16) is not ValueError and
-                passport["ecl"] in REQUIRED["ecl"] and
-                int(passport["pid"]) is not ValueError and len(passport["pid"]) == 9
+                    REQUIRED["byr"]["min"] <= int(passport["byr"]) <= REQUIRED["byr"]["max"] and
+                    REQUIRED["iyr"]["min"] <= int(passport["iyr"]) <= REQUIRED["iyr"]["max"] and
+                    REQUIRED["eyr"]["min"] <= int(passport["eyr"]) <= REQUIRED["eyr"]["max"] and
+                    (
+                        REQUIRED["hgt"][passport["hgt"].rsplit()[0][-2:]]["min"] <=
+                        int(passport["hgt"][:-2]) <=
+                        REQUIRED["hgt"][passport["hgt"].rsplit()[0][-2:]]["max"]
+                    ) and
+                    passport["hcl"][0] == "#" and
+                    int(passport["hcl"][1:7], 16) is not ValueError and
+                    passport["ecl"] in REQUIRED["ecl"] and
+                    int(passport["pid"]) is not ValueError and
+                    len(passport["pid"]) == 9
                 ):
                 counter += 1
         except (KeyError, ValueError):
@@ -52,7 +54,7 @@ def parse(data: list) -> list:
     """Parses passport data and generates a list dicts"""
     passports = []
     for row in data:
-        passport = { x[0]:x[1] for x in [i.split(':') for i in row.split()]}
+        passport = {x[0]:x[1] for x in [i.split(':') for i in row.split()]}
         passport.pop('cid', None)
         passports.append(passport)
     return passports
