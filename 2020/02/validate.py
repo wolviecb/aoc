@@ -1,4 +1,4 @@
-"""How many passwords are valid according to their policies?"""
+"""https://adventofcode.com/2020/day/2"""
 from typing import Callable
 
 
