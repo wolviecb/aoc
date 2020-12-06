@@ -3,8 +3,7 @@ import itertools
 from functools import reduce
 
 with open("input.txt", "r") as read_input:
-    i = read_input.readlines()
-    INPUT = list(map(int, i))
+    INPUT = list(map(int, read_input.readlines()))
 
 
 def expense(exps: list, entries: int) -> int:
