@@ -1,8 +1,4 @@
-"""From your starting position at the top-left, check the position that is right 3 and down 1.
-Then, check the position that is right 3 and down 1 from there, and so on until you go past
-the bottom of the map. What do you get if you multiply together the number of trees encountered
-on each of the listed slopes?
-"""
+"""https://adventofcode.com/2020/day/3"""
 
 INPUT = []
 
