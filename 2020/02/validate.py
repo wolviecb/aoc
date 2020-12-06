@@ -3,8 +3,7 @@ from typing import Callable
 
 
 with open("input.txt", "r") as read_input:
-    i = read_input.readlines()
-    INPUT = list(map(str, i))
+    INPUT = list(map(str, read_input.readlines()))
 
 
 def validate(passwords: list, check_type: Callable[[str, str, int, int], bool]) -> int:
