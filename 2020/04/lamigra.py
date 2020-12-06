@@ -2,10 +2,7 @@
 
 INPUT = []
 with open("input.txt", "r") as read_input:
-    temp = read_input.readlines()
-    INPUT = "".join(temp).replace("\n", " ").split("  ")
-    # for line in temp:
-    #     INPUT.append(line.replace("\n", ""))
+    INPUT = "".join(read_input.readlines()).replace("\n", " ").split("  ")
 
 REQUIRED = {
     "byr": {"min": 1920, "max": 2002},
